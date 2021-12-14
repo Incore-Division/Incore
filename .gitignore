@@ -1,5 +1,12 @@
 # Files
 
 # Extensions
+*.sln
+*.vcxproj
+*.vcxproj.user
+*.vcxproj.filters
 
 # Folders
+.vs/
+.vscode/
+Thirdparty/premake-core/bin/
