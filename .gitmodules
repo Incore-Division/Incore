@@ -1,0 +1,3 @@
+[submodule "Thirdparty/premake-core"]
+	path = Thirdparty/premake-core
+	url = https://github.com/premake/premake-core
