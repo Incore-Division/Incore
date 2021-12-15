@@ -1,7 +1,7 @@
 project "Runtime"
     kind "ConsoleApp"
     language "C++"
-    cdialect "C++11"
+    cppdialect "C++11"
 
     targetdir(Bin)
     objdir(Obj)

@@ -1,12 +1,12 @@
 project "Incore"
-    kind "SharedLib"
+    kind "StaticLib"
     language "C++"
-    cdialect "C++11"
+    cppdialect "C++11"
 
     targetdir(Bin)
     objdir(Obj)
 
-    pchheader "ipch.hpp"
+    pchheader "ipch.h"
     pchsource "Source/ipch.cpp"
 
     files
@@ -19,12 +19,13 @@ project "Incore"
 
     includedirs
     {
-        "Source"
+        "Source",
+        "%{IncludeList.GLFW}"
     }
 
     links
     {
-
+        "GLFW"
     }
 
     defines
