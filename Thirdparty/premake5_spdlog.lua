@@ -31,6 +31,3 @@ project "SPDLOG"
     filter "configurations:Release"
         runtime "Release"
         optimize "On"
-
-    filter "system:windows"
-        disablewarnings { "2685", "26812" }

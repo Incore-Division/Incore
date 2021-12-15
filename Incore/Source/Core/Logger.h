@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Core.h"
+
 #include <spdlog/spdlog.h>
 #include <spdlog/fmt/ostr.h>
 #include <spdlog/sinks/stdout_color_sinks.h>
@@ -56,11 +57,11 @@ namespace Incore
 
 #if defined (ENABLE_ASSERTS) 
 	#if defined (_MSC_VER)
-		#define INCORE_ASSERT(x, ...) { if(!(x)) { INCORE_CRITICAL("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
-		#define RUNTIME_ASSERT(x, ...) { if(!(x)) { RUNTIME_CRITICAL("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+		#define INCORE_ASSERT(x, ...)	{ if(!(x)) { INCORE_CRITICAL("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+		#define RUNTIME_ASSERT(x, ...)	{ if(!(x)) { RUNTIME_CRITICAL("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 	#else
-		#define INCORE_ASSERT(x, ...) { if (!(x)) { INCORE_CRITICAL("Assertion Failed: {0}", __VA_ARGS__); __builtin_trap(); }
-		#define RUNTIME_ASSERT(x, ...) { if (!(x)) { RUNTIME_CRITICAL("Assertion Failed: {0}", __VA_ARGS__); __builtin_trap(); }
+		#define INCORE_ASSERT(x, ...)	{ if (!(x)) { INCORE_CRITICAL("Assertion Failed: {0}", __VA_ARGS__); __builtin_trap(); }
+		#define RUNTIME_ASSERT(x, ...)	{ if (!(x)) { RUNTIME_CRITICAL("Assertion Failed: {0}", __VA_ARGS__); __builtin_trap(); }
 	#endif
 #else
 	#define INCORE_ASSERT(x, ...)

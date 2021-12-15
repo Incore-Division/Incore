@@ -45,3 +45,6 @@ project "Incore"
         defines { "INCORE_RELEASE" }
         runtime "Release"
         optimize "On"
+
+    filter "system:windows"
+        disablewarnings { "26812", "26437", "26451", "26498" }
