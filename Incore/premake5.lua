@@ -20,18 +20,20 @@ project "Incore"
     includedirs
     {
         "Source",
+        "%{IncludeList.SPDLOG}",
         "%{IncludeList.GLFW}"
     }
 
     links
     {
+        "SPDLOG",
         "GLFW"
     }
 
     defines
     {
-        "ENABLE_MESSAGES",
-        "ENABLE_ASSERTIONS"
+        "ENABLE_LOGGING",
+        "ENABLE_ASSERTS"
     }
 
     filter "configurations:Debug"

@@ -7,9 +7,11 @@ workspace "Solution"
     Obj = "%{wks.location}/Build/Obj/%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeList = {}
+IncludeList["SPDLOG"] = "%{wks.location}/Thirdparty/spdlog/include"
 IncludeList["GLFW"] = "%{wks.location}/Thirdparty/glfw/include"
 
 group "Dependencies"
+include "Thirdparty/premake5_spdlog.lua"
 include "Thirdparty/premake5_glfw.lua"
 group ""
 
