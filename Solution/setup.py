@@ -36,7 +36,7 @@ class Vulkan:
 
         if(platform.system() == "Darwin") :
             vurl = f"https://sdk.lunarg.com/sdk/download/{cls.vulkanversion}/mac/vulkansdk-macos-{cls.vulkanversion}-Installer.dmg";
-            vpath = f"{cls.vulkandownloadpath}/VulkanSDK-{cls.vulkanversion}-Installer.tar.gz";
+            vpath = f"{cls.vulkandownloadpath}/VulkanSDK-{cls.vulkanversion}-Installer.dmg";
 
         print("Downloading Vulkan SDK installer...");
         cls.Download(vurl, vpath);
@@ -89,7 +89,7 @@ class Premake:
 
         if(platform.system() == "Darwin") :
             os.chdir("../Thirdparty/premake-core");
-            subprocess.call([os.path.abspath("make -f Bootstrap.mak linux")]);
+            subprocess.call([os.path.abspath("make -f Bootstrap.mak osx")]);
             os.chdir(scriptdir);
 
     @classmethod
