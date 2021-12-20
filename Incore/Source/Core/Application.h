@@ -17,6 +17,9 @@ namespace Incore
 		/* Runs the application */
 		void Run();
 
+		/* Reads and set startup params */
+		void ResolveParams(int argc, char* argv[]);
+
 	public:
 
 		/* Returns the application itself */
@@ -30,11 +33,6 @@ namespace Incore
 
 		/* Returns the current renderer api */
 		inline static const RendererApi& GetRendererApi() { return s_rendererapi; }
- 
-	protected:
-
-		/* Reads and set startup params */
-		void ResolveParams(int argc, char* argv[]);
 
 	private:
 

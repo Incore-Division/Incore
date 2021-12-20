@@ -47,4 +47,4 @@ project "Incore"
         optimize "On"
 
     filter "system:windows"
-        disablewarnings { "26812", "26437", "26451", "26498" }
+        disablewarnings { "6285", "26812", "26437", "26451", "26498", "26800" }

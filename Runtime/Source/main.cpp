@@ -2,6 +2,13 @@
 
 int main(int argc, char* argv[])
 {
-	std::cout << "Hello World" << std::endl;
+	Incore::Logger::Init();
+
+	Incore::Application* app = new Incore::Application();
+	app->ResolveParams(argc, argv);
+	app->Run();
+
+	delete app;
+
 	return 0;
 }

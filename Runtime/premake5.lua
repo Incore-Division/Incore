@@ -17,7 +17,8 @@ project "Runtime"
     includedirs
     {
         "Source",
-        "%{wks.location}/Incore/Source"
+        "%{wks.location}/Incore/Source",
+        "%{IncludeList.SPDLOG}"
     }
 
     links
@@ -40,3 +41,6 @@ project "Runtime"
         defines { "RUNTIME_RELEASE" }
         runtime "Release"
         optimize "On"
+
+    filter "system:windows"
+        disablewarnings { "6285", "26812", "26437", "26451", "26498", "26800" }

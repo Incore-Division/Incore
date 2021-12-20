@@ -21,7 +21,7 @@ namespace Incore
 
 	void Application::Run()
 	{
-
+		while (true);
 	}
 
 	void Application::ResolveParams(int argc, char* argv[])
@@ -37,6 +37,10 @@ namespace Incore
 		s_operatingsystem = OperatingSystem::Undefined;
 		#endif
 
+		// auto-define to vulkan and keyboard+mouse
+		s_rendererapi = RendererApi::Vulkan;
+		s_inputsystem = InputSystem::Desktop;
+
 		// analyzes the params
 		for (int i = 0; i < argc; i += 2)
 		{
@@ -46,9 +50,5 @@ namespace Incore
 			if (argv[i] == "-input" && argv[i + 1] == "desktop") s_inputsystem = InputSystem::Desktop;
 			if (argv[i] == "-input" && argv[i + 1] == "controller") s_inputsystem = InputSystem::Controller;
 		}
-
-		// auto-define to vulkan and keyboard+mouse if 
-		if (s_rendererapi == RendererApi::Undefined) s_rendererapi = RendererApi::Vulkan;
-		if (s_inputsystem == InputSystem::Undefined) s_inputsystem = InputSystem::Desktop;
 	}
 }
