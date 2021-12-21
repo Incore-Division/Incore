@@ -80,7 +80,6 @@ class Premake:
             os.chdir("../Thirdparty/premake-core");
             subprocess.call([os.path.abspath("Bootstrap.bat")]);
             os.chdir(scriptdir);
-            
 
         if(platform.system() == "Linux") : 
             os.chdir("../Thirdparty/premake-core");
@@ -102,8 +101,6 @@ class Premake:
 
         if(platform.system() == "Darwin") : 
             subprocess.call([os.path.abspath("_xcode.sh")]);
-
-# Check requireds modules
 
 if(Vulkan.Installed() == False) :
     Vulkan.Install();

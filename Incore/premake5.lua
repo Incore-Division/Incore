@@ -21,19 +21,23 @@ project "Incore"
     {
         "Source",
         "%{IncludeList.SPDLOG}",
-        "%{IncludeList.GLFW}"
+        "%{IncludeList.GLFW}",
+        "%{IncludeList.VULKANSDK}"
     }
 
     links
     {
         "SPDLOG",
-        "GLFW"
+        "GLFW",
+        "%{LibraryList.VULKANSDK}/vulkan-1.lib"
     }
 
     defines
     {
         "ENABLE_LOGGING",
-        "ENABLE_ASSERTS"
+        "ENABLE_ASSERTS",
+        --
+        "GLFW_INCLUDE_NONE"
     }
 
     filter "configurations:Debug"
