@@ -8,7 +8,7 @@ namespace Incore
 {
 	namespace Core
 	{
-		Scope<Window> Window::Create(WindowProperties& props)
+		Scope<Window> Window::Create(const WindowProperties& props)
 		{
 			switch (Application::GetOperatingSystem())
 			{

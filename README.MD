@@ -14,6 +14,7 @@ In order to set the incore envieroment on your computer a few things need to be 
 * ```On Windows a visual studio 2022 will be generated under Incore```
 * ```On Linux a gnu makefile will be generated under Incore```
 * ``` On macosx a xcode project will be generated under Incore``` 
+* WARNING: Incore as it is right now only builds on windows, this will change when we have something interesting to show
 
 Although multi-platform is supported it's not tested as right at the moment we're using windows but this will change once we have sothing to show.
 

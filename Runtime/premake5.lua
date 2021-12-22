@@ -18,7 +18,8 @@ project "Runtime"
     {
         "Source",
         "%{wks.location}/Incore/Source",
-        "%{IncludeList.SPDLOG}"
+        "%{IncludeList.SPDLOG}",
+        "%{IncludeList.GLM}"
     }
 
     links

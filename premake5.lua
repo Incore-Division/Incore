@@ -12,6 +12,7 @@ IncludeList = {}
 IncludeList["VULKANSDK"] = "%{VULKAN_SDK}/Include"
 IncludeList["SPDLOG"] = "%{wks.location}/Thirdparty/spdlog/include"
 IncludeList["GLFW"] = "%{wks.location}/Thirdparty/glfw/include"
+IncludeList["GLM"] = "%{wks.location}/Thirdparty/glm"
 
 LibraryList = {}
 LibraryList["VULKANSDK"] = "%{VULKAN_SDK}/Lib"
@@ -19,6 +20,7 @@ LibraryList["VULKANSDK"] = "%{VULKAN_SDK}/Lib"
 group "Dependencies"
 include "Thirdparty/premake5_spdlog.lua"
 include "Thirdparty/premake5_glfw.lua"
+include "Thirdparty/premake5_glm.lua"
 group ""
 
 include "Incore"

@@ -23,7 +23,6 @@ project "GLFW"
         "include"
     }
 
-    --[[
     filter "system:windows"
         files
 		{
@@ -37,7 +36,6 @@ project "GLFW"
 			"glfw/src/egl_context.c",
 			"glfw/src/osmesa_context.c"
 		}
-    ]]
 
     filter "configurations:Debug"
 		runtime "Debug"

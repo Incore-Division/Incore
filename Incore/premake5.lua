@@ -20,9 +20,10 @@ project "Incore"
     includedirs
     {
         "Source",
+        "%{IncludeList.VULKANSDK}",
         "%{IncludeList.SPDLOG}",
         "%{IncludeList.GLFW}",
-        "%{IncludeList.VULKANSDK}"
+        "%{IncludeList.GLM}"
     }
 
     links

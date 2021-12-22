@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Core.h"
+#include "Window.h"
 
 namespace Incore
 {
@@ -11,7 +12,7 @@ namespace Incore
 		public:
 
 			/* Constructor */
-			Application();
+			Application(int argc, char* argv[]);
 
 			/* Destructor */
 			~Application();
@@ -38,6 +39,7 @@ namespace Incore
 
 		private:
 
+			Scope<Window> m_window;
 			static Application* s_application;
 			static OperatingSystem s_operatingsystem;
 			static InputSystem s_inputsystem;

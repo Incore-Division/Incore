@@ -2,10 +2,9 @@
 
 int main(int argc, char* argv[])
 {
-	Incore::Logger::Init();
+	Incore::Core::Logger::Init();
 
-	Incore::Application* app = new Incore::Application();
-	app->ResolveParams(argc, argv);
+	Incore::Core::Application* app = new Incore::Core::Application(argc, argv);
 	app->Run();
 
 	delete app;

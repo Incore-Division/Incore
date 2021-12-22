@@ -11,9 +11,11 @@ namespace Incore
 		InputSystem Application::s_inputsystem = InputSystem::Undefined;
 		RendererApi Application::s_rendererapi = RendererApi::Undefined;
 
-		Application::Application()
+		Application::Application(int argc, char* argv[])
 		{
 			s_application = this;
+			ResolveParams(argc, argv);
+			m_window = Window::Create();
 		}
 
 		Application::~Application()
@@ -29,7 +31,7 @@ namespace Incore
 		void Application::ResolveParams(int argc, char* argv[])
 		{
 			// detects the operating system
-			#if defined (_WIN32) || defined(_WIN64)
+			#if defined(_WIN64)
 			s_operatingsystem = OperatingSystem::Windows;
 			#elif defined(__APPLE__)
 			s_operatingsystem = OperatingSystem::Macosx;

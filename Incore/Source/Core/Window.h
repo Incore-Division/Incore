@@ -23,13 +23,16 @@ namespace Incore
 		public:
 
 			/* Creates an window and returns a smart pointer for it */
-			static Scope<Window> Create(WindowProperties& props = WindowProperties());
+			static Scope<Window> Create(const WindowProperties& props = WindowProperties());
 
 			/* Virtual Destructor */
 			~Window() = default;
 
 			/* Window main loop */
 			virtual void OnUpdate() = 0;
+
+			/* Returns if the window should be shut down */
+			virtual bool ShouldClose() = 0;
 
 			/* Returns the window itself */
 			virtual void* GetNativeWindow() = 0;
