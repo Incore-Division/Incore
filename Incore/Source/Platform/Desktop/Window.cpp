@@ -7,19 +7,35 @@ namespace Incore
 	{
 		namespace Desktop
 		{
+			void ErrorCallback(int code, const char* message)
+			{
+				INCORE_CRITICAL("{0}:{1}", code, message);
+			}
+
 			Window::Window(const Core::WindowProperties& props) : m_props(props), m_window(nullptr)
 			{
+				bool glfw = glfwInit();
+				INCORE_ASSERT(glfw, "GLFW was not successfully initialized");
 
+				glfwSetErrorCallback(ErrorCallback);
+
+				glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
+				glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE); // Vulkan resizes window in another way
+
+				m_window = glfwCreateWindow(m_props.m_width, m_props.m_height, m_props.m_title, nullptr, nullptr);
+
+				INCORE_ASSERT(m_window, "Window is a nullptr");
 			}
 
 			Window::~Window()
 			{
-
+				glfwDestroyWindow(m_window);
+				glfwTerminate();
 			}
 
 			void Window::OnUpdate()
 			{
-
+				glfwPollEvents();
 			}
 
 			bool Window::ShouldClose()
@@ -51,7 +67,6 @@ namespace Incore
 			void Window::SetWidth(unsigned int width)
 			{
 				m_props.m_width = width;
-				glfwSetWindowSize(m_window, width, m_props.m_height);
 			}
 
 			unsigned int Window::GetHeight() const
@@ -62,7 +77,6 @@ namespace Incore
 			void Window::SetHeight(unsigned int height)
 			{
 				m_props.m_height = height;
-				glfwSetWindowSize(m_window, m_props.m_width, height);
 			}
 
 			bool Window::GetVsync() const
@@ -72,7 +86,7 @@ namespace Incore
 
 			void Window::SetVsync(bool status)
 			{
-				// Vertical Syncronization will be done by vulkan
+				m_props.m_vsync = status;
 			}
 		}
 	}

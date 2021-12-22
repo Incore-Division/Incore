@@ -47,4 +47,4 @@ project "GLFW"
 
     filter "system:windows" -- this needs to be defined for every platform
         defines { "_GLFW_WIN32", "_CRT_SECURE_NO_WARNINGS" }
-        disablewarnings { "5105" }
+        disablewarnings { "5105", "6011" }

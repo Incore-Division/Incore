@@ -25,7 +25,10 @@ namespace Incore
 
 		void Application::Run()
 		{
-			while (true);
+			while (!m_window->ShouldClose())
+			{
+				m_window->OnUpdate();
+			}
 		}
 
 		void Application::ResolveParams(int argc, char* argv[])
